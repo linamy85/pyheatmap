@@ -141,8 +141,18 @@ class HeatMap(object):
             # 空图片
             return
 
-        r = 240.0 / max_v
-        heat_data2 = [int(i * r) - 1 for i in heat_data]
+        # r = 240.0 / max_v
+        r1 = 60.0 / max_v
+        r2 = 600.0 / max_v
+        thres = max_v / 3
+        def tran(x):
+            if x > thres:
+                return 179.0 + r1 * x
+            elif x <= 0:
+                return -1
+            else:
+                return r2 * x
+        heat_data2 = [int(tran(i)) for i in heat_data]
 
         size = width * height
         _range = range if PY3 else xrange
