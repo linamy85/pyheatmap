@@ -1,4 +1,18 @@
-# pyHeatMap
+# Tool for drawing heatmap for SocialAR project
+
+### Installation
+
+    sudo pip3 install image
+
+### For getting help for execution
+
+    python3 socialAR.py -h
+
+### Execution
+    
+    python3 socialAR.py -i input.csv -s 20 # `-s` indicates the scale.
+
+## pyHeatMap
 
  * Author: oldj
  * Email: oldj.wu@gmail.com
@@ -10,65 +24,25 @@ pyHeatMap is a Python library for painting heat maps. It depends on [Pillow](htt
 Python 2/3 compatible.
 
 
-## Screenshots
+### Screenshots
 
-### hit map
+#### hit map
 
 ![hit map](https://raw.github.com/oldj/pyheatmap/master/examples/hit.png)
 
-### heat map
+#### heat map
 
 ![heat map](https://raw.github.com/oldj/pyheatmap/master/examples/heat.png)
 
 
 ## Install
 
-### by pip:
-
-    pip install pyheatmap
-
-### by easy_install:
-
-    easy_install pyheatmap
-
-
 ### from source code:
 
-    git clone git://github.com/oldj/pyheatmap.git
+    git clone git://github.com/linamy85/pyheatmap.git
     cd pyheatmap
     python setup.py install
 
-
-## Example:
-
-```python
-# -*- coding: utf-8 -*-
-
-from pyheatmap.heatmap import HeatMap
-import requests
-
-def main():
-
-    # download test data
-    url = "https://raw.github.com/oldj/pyheatmap/master/examples/test_data.txt"
-    sdata = requests.get(url).text.split("\n")
-    data = []
-    for ln in sdata:
-        a = ln.split(",")
-        if len(a) != 2:
-            continue
-        a = [int(i) for i in a]
-        data.append(a)
-
-    # start painting
-    hm = HeatMap(data)
-    hm.clickmap(save_as="hit.png")
-    hm.heatmap(save_as="heat.png")
-
-if __name__ == "__main__":
-    main()
-
-```
 
 ## Copyright
 
